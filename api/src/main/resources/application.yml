@@ -1,0 +1,19 @@
+springdoc:
+  swagger-ui:
+    path: /
+
+spring:
+  cloud:
+    azure:
+      active-directory:
+        enabled: true
+        profile:
+          tenant-id: e3183c89-78ae-43e0-b8a3-3eb012e5d9ea
+        credential:
+          client-id: 2b56d192-6bf6-4c92-bc4a-981b8bf78f21
+          client-secret: S5c8Q~hfBH887TLO0Fo3veyoCEu5.-zlkPPz_b-a
+        authorization-clients:
+          graph:
+            scopes:
+              - https://graph.microsoft.com/User.Read
+              - https://graph.microsoft.com/Contacts.ReadWrite.Shared
