@@ -8,7 +8,9 @@ import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.http.HttpClient;
@@ -26,6 +28,7 @@ public class TemplateService {
     public TemplateService(GraphUtil graphUtil){
         this.graphUtil = graphUtil;
     }
+
     public String test() {
         try {
             HttpRequest request = HttpRequest.newBuilder()
@@ -45,7 +48,7 @@ public class TemplateService {
         return null;
     }
 
-    public User tet(String token){
+    public User testing(String token){
         HttpEntity<String> entity = graphUtil.generateEntity(token);
         return restTemplate.exchange(V1_API_BASE_URL + "me",
                 HttpMethod.GET, entity, User.class).getBody();
