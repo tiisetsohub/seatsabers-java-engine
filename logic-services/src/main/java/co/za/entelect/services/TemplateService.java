@@ -1,6 +1,12 @@
 package co.za.entelect.services;
 
+import co.za.entelect.utils.GraphUtil;
+import com.microsoft.graph.models.extensions.User;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 import java.io.IOException;
 import java.net.URI;
@@ -9,9 +15,17 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
+import static co.za.entelect.constants.GraphApiUrl.V1_API_BASE_URL;
+
 @Service
 public class TemplateService {
+    private final GraphUtil graphUtil;
+    private final RestTemplate restTemplate = new RestTemplate();
 
+    @Autowired
+    public TemplateService(GraphUtil graphUtil){
+        this.graphUtil = graphUtil;
+    }
     public String test() {
         try {
             HttpRequest request = HttpRequest.newBuilder()
@@ -29,6 +43,12 @@ public class TemplateService {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public User tet(String token){
+        HttpEntity<String> entity = graphUtil.generateEntity(token);
+        return restTemplate.exchange(V1_API_BASE_URL + "me",
+                HttpMethod.GET, entity, User.class).getBody();
     }
 
 }
