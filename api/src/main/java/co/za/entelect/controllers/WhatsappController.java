@@ -1,7 +1,6 @@
 package co.za.entelect.controllers;
 
 import co.za.entelect.dtos.UserMessageRequest;
-import co.za.entelect.dtos.whatsapp.messages.requests.PlainTextDto;
 import co.za.entelect.dtos.whatsapp.messages.responses.MessageResponseDto;
 import co.za.entelect.services.WhatsappService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +23,7 @@ public class WhatsappController {
 //    }
 
     @PostMapping
-    public MessageResponseDto test(@RequestBody UserMessageRequest userMessageRequest){
+    public MessageResponseDto processMessage(@RequestBody UserMessageRequest userMessageRequest){
         System.out.println("1");
         return whatsappService.processMessage(userMessageRequest.getPhoneNumber(), userMessageRequest.getText());
     }
