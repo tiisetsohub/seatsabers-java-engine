@@ -1,6 +1,6 @@
 package co.za.entelect.entities;
 
-import co.za.entelect.dtos.TemplateDto;
+import co.za.entelect.dtos.whatsapp.generic.TemplateDto;
 import lombok.*;
 
 import javax.persistence.Entity;

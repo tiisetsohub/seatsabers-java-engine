@@ -15,28 +15,21 @@
             <scope>compile</scope>
         </dependency>
         <dependency>
-            <groupId>com.microsoft.graph</groupId>
-            <artifactId>microsoft-graph</artifactId>
-            <version>1.0.1</version>
+            <groupId>co.za.entelect</groupId>
+            <artifactId>persistence</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <scope>compile</scope>
         </dependency>
-    </dependencies>
-    <modelVersion>4.0.0</modelVersion>
-
-    <artifactId>logic-services</artifactId>
-    <dependencies>
         <dependency>
             <groupId>co.za.entelect</groupId>
             <artifactId>domain</artifactId>
             <version>0.0.1-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
-        <dependency>
-            <groupId>co.za.entelect</groupId>
-            <artifactId>persistence</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-            <scope>compile</scope>
-        </dependency>
     </dependencies>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>logic-services</artifactId>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>

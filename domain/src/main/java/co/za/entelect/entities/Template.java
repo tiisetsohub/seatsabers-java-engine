@@ -1,6 +1,6 @@
 package co.za.entelect.entities;
 
-import co.za.entelect.dtos.LanguageDto;
+import co.za.entelect.dtos.whatsapp.generic.LanguageDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
