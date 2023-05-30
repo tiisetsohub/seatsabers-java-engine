@@ -9,6 +9,6 @@ import javax.persistence.Entity;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Language {
+public class LanguageEntity {
     private String code;
 }

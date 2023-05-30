@@ -1,10 +1,11 @@
-package co.za.entelect.dtos;
+package co.za.entelect.dtos.whatsapp.generic;
 
 import lombok.*;
 
 @Getter
 @Setter
 @AllArgsConstructor
+@NoArgsConstructor
 @Builder
 public class LanguageDto {
     private String code;
