@@ -1,7 +1,7 @@
 package co.za.entelect.services;
 
 import co.za.entelect.dtos.whatsapp.generic.*;
-import co.za.entelect.dtos.whatsapp.messages.requests.ConfirmBookingsButtonsDto;
+import co.za.entelect.dtos.whatsapp.messages.requests.ButtonsMessageModelDto;
 import co.za.entelect.dtos.whatsapp.messages.requests.HQLocationDto;
 import co.za.entelect.dtos.whatsapp.messages.requests.OfficeListDto;
 import co.za.entelect.dtos.whatsapp.messages.requests.PlainTextDto;
@@ -26,8 +26,8 @@ public class MessageBuilderService {
         return plainText;
     }
 
-    public ConfirmBookingsButtonsDto buildConfirmBookingsButtonsMessage(String phoneNumber){
-        ConfirmBookingsButtonsDto confirmBookingsButtons = ConfirmBookingsButtonsDto.builder()
+    public ButtonsMessageModelDto buildConfirmBookingsButtonsMessage(String phoneNumber){
+        ButtonsMessageModelDto confirmBookingsButtons = ButtonsMessageModelDto.builder()
                 .messaging_product("whatsapp")
                 .to(phoneNumber)
                 .type("interactive")
@@ -60,6 +60,49 @@ public class MessageBuilderService {
                                                                 )
                                                                 .build()
                                                 })
+                                                .build()
+                                )
+                                .build()
+
+                )
+                .build();
+        System.out.println("3");
+
+        return confirmBookingsButtons;
+    }
+
+    public ButtonDto[] createButtons(String[] buttonTexts){
+        ButtonDto[] buttons = new ButtonDto[buttonTexts.length];
+        for (int i = 0;i < buttons.length; i++) {
+            buttons[i] = ButtonDto.builder()
+                    .type("reply")
+                    .reply(
+                            ReplyDto.builder()
+                                    .id(String.valueOf(i))
+                                    .title(buttonTexts[i])
+                                    .build()
+                    )
+                    .build();
+        }
+        System.out.println(buttons[0].getReply().getTitle());
+        return buttons;
+    }
+
+    public ButtonsMessageModelDto buildButtonMessageModel(String bodyText, String[] buttonTexts, String phoneNumber){
+        ButtonsMessageModelDto confirmBookingsButtons = ButtonsMessageModelDto.builder()
+                .messaging_product("whatsapp")
+                .to(phoneNumber)
+                .type("interactive")
+                .interactive(
+                        InteractiveDto.builder()
+                                .type("button")
+                                .body(
+                                        HBFDto.builder()
+                                                .text(bodyText)
+                                                .build()
+                                ).action(
+                                        ActionDto.builder()
+                                                .buttons(createButtons(buttonTexts))
                                                 .build()
                                 )
                                 .build()

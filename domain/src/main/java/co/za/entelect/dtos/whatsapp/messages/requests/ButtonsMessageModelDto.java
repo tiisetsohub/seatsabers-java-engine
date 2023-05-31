@@ -8,19 +8,20 @@ import lombok.experimental.SuperBuilder;
 @Setter
 @NoArgsConstructor
 @SuperBuilder
-public class ConfirmBookingsButtonsDto extends TemplateMessageDto {
+@ToString
+public class ButtonsMessageModelDto extends TemplateMessageDto {
     private InteractiveDto interactive;
 
-    public ConfirmBookingsButtonsDto(String messaging_product, String to, String type, InteractiveDto interactive) {
+    public ButtonsMessageModelDto(String messaging_product, String to, String type, InteractiveDto interactive) {
         super(messaging_product, to, type);
         this.interactive = interactive;
     }
 
-    public ConfirmBookingsButtonsDto(InteractiveDto interactive) {
+    public ButtonsMessageModelDto(InteractiveDto interactive) {
         this.interactive = interactive;
     }
 
-    public ConfirmBookingsButtonsDto(TemplateMessageDtoBuilder<?, ?> b, InteractiveDto interactive) {
+    public ButtonsMessageModelDto(TemplateMessageDtoBuilder<?, ?> b, InteractiveDto interactive) {
         super(b);
         this.interactive = interactive;
     }
